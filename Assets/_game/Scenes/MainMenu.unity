@@ -396,6 +396,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d12863ef74688454d90c63305eeb4e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lvlName: GameArea
+  _click: {fileID: 0}
+  _mmMusic: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

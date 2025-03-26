@@ -2,9 +2,9 @@
     <Style src="project://database/Assets/_game/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=c68e98df1fdcafc4ebd0618c383d1aad&amp;type=3#MainMenu" />
     <engine:VisualElement name="Canvas" style="flex-grow: 1; background-color: rgb(0, 195, 193);">
         <engine:VisualElement name="Root" style="flex-grow: 1;">
-            <engine:Label text="Label" name="Header" />
-            <engine:Button text="Button" name="Play" />
-            <engine:Button text="Button" name="Quit" />
+            <engine:Label text="Typical Fishing Game" name="Header" class="header" style="bottom: auto; position: relative; left: -219px;" />
+            <engine:Button text="Play" name="Play" class="button" style="left: 50px;" />
+            <engine:Button text="Quit" name="Quit" class="button" style="left: 50px;" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>
