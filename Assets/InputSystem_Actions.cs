@@ -94,7 +94,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""TouchPoint"",
                     ""type"": ""Button"",
-                    ""id"": ""8a7752a7-eefa-45d8-b8b8-ed4d007e8e69"",
+                    ""id"": ""b502bd5b-030f-4cb2-b6a8-4b5ea57c4a85"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -104,7 +104,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": ""Touch"",
-                    ""id"": ""4fb16996-093e-4e0b-9b71-963f17fd36e9"",
+                    ""id"": ""08b3fa82-1601-47ea-b685-d299c7f4793e"",
                     ""path"": ""OneModifier"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -115,7 +115,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""modifier"",
-                    ""id"": ""8ca83265-8b14-41fd-a2c1-fce6827cab7a"",
+                    ""id"": ""eac54246-a88f-4a94-9005-4fd002fe6bb0"",
                     ""path"": ""<Touchscreen>/Press"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -126,7 +126,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""binding"",
-                    ""id"": ""0f820f4e-4536-4ed0-abe4-e4fdec964acf"",
+                    ""id"": ""f7a5b5b5-b801-4ff1-99ba-7a023a2d4789"",
                     ""path"": ""<Touchscreen>/position"",
                     ""interactions"": """",
                     ""processors"": """",
