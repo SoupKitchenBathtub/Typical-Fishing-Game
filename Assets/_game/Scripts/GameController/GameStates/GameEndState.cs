@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSetupState : State
+public class GameEndState : State
 {
 
     private GameFSM _stateMachine;
     private GameController _controller;
 
-    public GameSetupState(GameFSM stateMachine, GameController controller)
+    public GameEndState(GameFSM stateMachine, GameController controller)
     {
         _stateMachine = stateMachine;
         _controller = controller;
@@ -17,11 +17,7 @@ public class GameSetupState : State
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("State: Game Setup");
-        Debug.Log("Load Save Data");
-        Debug.Log("Spawn Units");
-        //Load Player Values
-        _controller.UnitSpawner.Spawn(_controller.PlayerUnitPrefab, _controller.PlayerUnitSpawnLocation);
+        Debug.Log("Game Ended State Entered");
     }
 
     public override void Exit()
@@ -37,6 +33,9 @@ public class GameSetupState : State
     public override void Tick()
     {
         base.Tick();
-        _stateMachine.ChangeState(_stateMachine._dayState);
+        if (_controller.Input.IsTapPressed == true)
+        {
+            _stateMachine.ChangeState(_stateMachine.PlayState);
+        }
     }
 }

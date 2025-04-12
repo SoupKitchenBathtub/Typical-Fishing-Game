@@ -35,6 +35,15 @@ public class GamePlayState : State
     public override void Tick()
     {
         base.Tick();
+        if(_controller.Input.IsTapPressed == true)
+        {
+            Debug.Log("You Win!");
+        }
+        else if(StateDur >= _controller.TapLimitDuration)
+        {
+            Debug.Log("You Lose!");
+            _stateMachine.ChangeState(_stateMachine.EndState);
+        }
         Debug.Log("Check for Win Condition");
         Debug.Log("Check for Lose Condition");
     }
