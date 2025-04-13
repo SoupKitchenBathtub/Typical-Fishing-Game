@@ -605,7 +605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2789a04715e8b449886ae27769e5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 180
+  timeLimit: 10
+  intLimit: 10
   _playerUnitPrefab: {fileID: 266268149856104780, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
   _playerUnitSpawnLocation: {fileID: 1663670810}
   _unitSpawner: {fileID: 1517531536}

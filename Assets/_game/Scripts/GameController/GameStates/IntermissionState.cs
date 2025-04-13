@@ -39,21 +39,20 @@ public class IntermissionState : State
     public override void Tick()
     {
         base.Tick();
+        Debug.Log("Intermission Time");
+
         if (StateDur >= _controller.IntDuration)
         {
-            /*switch (_stateMachine.PrevState)
+
+            if(_stateMachine.PrevState == _stateMachine._dayState)
             {
-                case _stateMachine._dayState:
-                    _stateMachine.ChangeState(_stateMachine._nightState);
-                    break;
-                case _stateMachine._nightState:
-                    _stateMachine.ChangeState(_stateMachine._dayState);
-                    break;
-            }*/
+                _stateMachine.ChangeState(_stateMachine._nightState);
+            }
+            if (_stateMachine.PrevState == _stateMachine._nightState)
+            {
+                _stateMachine.ChangeState(_stateMachine._dayState);
+            }
 
-
-
-            //_stateMachine.ChangeState(_stateMachine._nightState);
         }
     }
 }

@@ -35,7 +35,7 @@ public class GameEndState : State
         base.Tick();
         if (_controller.Input.IsTapPressed == true)
         {
-            _stateMachine.ChangeState(_stateMachine.PlayState);
+            _stateMachine.ChangeState(_stateMachine._dayState);
         }
     }
 }

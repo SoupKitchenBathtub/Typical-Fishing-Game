@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     [Header("Game Data")]
     
     [SerializeField]
-    private float timeLimit = 2.5f;
+    private float timeLimit = 180f;
     [SerializeField]
     private float intLimit = 30f;
 
