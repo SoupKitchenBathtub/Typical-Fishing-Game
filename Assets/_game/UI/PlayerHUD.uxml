@@ -1,0 +1,7 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_game/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=c68e98df1fdcafc4ebd0618c383d1aad&amp;type=3#MainMenu" />
+    <engine:VisualElement name="Canvas" style="flex-grow: 1;">
+        <engine:VisualElement name="HUD" style="flex-grow: 1;" />
+        <engine:VisualElement name="LoseScreen" style="flex-grow: 1; position: absolute; height: 1080px; width: 1920px;" />
+    </engine:VisualElement>
+</engine:UXML>
