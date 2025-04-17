@@ -34,7 +34,7 @@ public class DayState : State
         base.Tick();
         //Start Spawning Fishing Spots at fixed intervals
         //Rare occurance of a shop
-        Debug.Log("Day Time");
+        //Debug.Log("Day Time");
         if(StateDur >= _controller.TapLimitDuration)
         {
             //Clear All Objects in scene

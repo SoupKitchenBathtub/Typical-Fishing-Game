@@ -39,7 +39,7 @@ public class IntermissionState : State
     public override void Tick()
     {
         base.Tick();
-        Debug.Log("Intermission Time");
+        //Debug.Log("Intermission Time");
 
         if (StateDur >= _controller.IntDuration)
         {

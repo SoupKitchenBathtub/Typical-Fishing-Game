@@ -32,7 +32,7 @@ public class NightState : State
     public override void Tick()
     {
         base.Tick();
-        Debug.Log("Night Time");
+        //Debug.Log("Night Time");
         if (StateDur >= _controller.TapLimitDuration)
         {
             //Stop Spawning of Enemies
