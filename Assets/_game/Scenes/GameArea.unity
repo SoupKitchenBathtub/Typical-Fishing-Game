@@ -661,6 +661,10 @@ PrefabInstance:
       propertyPath: _input
       value: 
       objectReference: {fileID: 1885343690}
+    - target: {fileID: 801590472241671325, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
+      propertyPath: _moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2238026423225760860, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
       propertyPath: m_Name
       value: PlayerUnit

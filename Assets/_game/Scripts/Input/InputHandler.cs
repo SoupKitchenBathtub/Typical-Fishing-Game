@@ -38,7 +38,7 @@ public class InputHandler : MonoBehaviour
         TouchStartPosition = TouchPosition;
         TouchCurrentPosition = TouchPosition;
         TouchStarted?.Invoke(TouchPosition);
-        Debug.Log("Touch Start Pos: " + TouchStartPosition);
+        //Debug.Log("Touch Start Pos: " + TouchStartPosition);
     }
 
     private void OnTouchCancelled(InputAction.CallbackContext context)
@@ -46,7 +46,7 @@ public class InputHandler : MonoBehaviour
         // Debug.Log("Release");
         TouchHeld = false;
         TouchEnded?.Invoke(TouchCurrentPosition);
-        Debug.Log("Touch End Pos: " + TouchCurrentPosition);
+        //Debug.Log("Touch End Pos: " + TouchCurrentPosition);
         TouchStartPosition = Vector2.zero;
         TouchCurrentPosition = Vector2.zero;
     }

@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (_input.TouchHeld)
         {
-            Vector3 offsetPos = _moveDirection * _moveSpeed * Time.deltaTime;
+            Vector3 offsetPos = new Vector3(_moveDirection.x, 0, _moveDirection.y) * _moveSpeed * Time.deltaTime;
             _rigidbody.MovePosition(_rigidbody.position + offsetPos);
         }
     }
