@@ -15,6 +15,8 @@ public class DayState : State
     public override void Enter()
     {
         base.Enter();
+        SaveManager.Instance.Load();
+        Debug.Log("Day " + SaveManager.Instance.ActiveSaveData.day);
         //Start Spawning Fishing Spots
         //Switch Hud to Day Mode
     }
