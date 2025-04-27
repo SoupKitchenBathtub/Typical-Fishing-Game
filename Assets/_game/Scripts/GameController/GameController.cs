@@ -12,8 +12,8 @@ public class GameController : MonoBehaviour
     private float intLimit = 30f;
 
     [Header("Dependencies")]
-    [SerializeField]
-    private Unit _playerUnitPrefab;
+    //[SerializeField]
+    //private Unit _playerUnitPrefab;
     [SerializeField]
     private Transform _playerUnitSpawnLocation;
     [SerializeField]
@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
     public float TapLimitDuration => timeLimit;
     public float IntDuration => intLimit;
 
-    public Unit PlayerUnitPrefab => _playerUnitPrefab;
+    //public Unit PlayerUnitPrefab => _playerUnitPrefab;
     public Transform PlayerUnitSpawnLocation => _playerUnitSpawnLocation;
     public UnitSpawner UnitSpawner => _unitSpawner;
     public InputBroadcaster Input => _input;
