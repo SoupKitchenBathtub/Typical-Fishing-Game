@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8468152484381398721}
   - component: {fileID: 3346340263182279097}
   - component: {fileID: 1016005477791522693}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3928671776579819694}
   - component: {fileID: 5882142634760270919}
   - component: {fileID: 3069718462607579320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyBasic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 68
   m_CollisionDetection: 0
 --- !u!114 &3069718462607579320
 MonoBehaviour:

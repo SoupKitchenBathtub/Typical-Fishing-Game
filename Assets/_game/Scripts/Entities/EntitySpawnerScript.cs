@@ -7,7 +7,7 @@ public class EntitySpawnerScript : MonoBehaviour
     [SerializeField] private PlayerCharacter _playerCharacter;
 
     [Header("Spawn Settings")]
-    //[SerializeField] private Enemy[] _possibleEnemiesToSpawn;
+    [SerializeField] private Enemy[] _possibleEnemiesToSpawn;
     [SerializeField] private float _spawnRate = 1;
     [SerializeField] private LayerMask _layersToTest;
     [SerializeField] private float _spawnDistanceFromPlayer = 10;
@@ -20,5 +20,111 @@ public class EntitySpawnerScript : MonoBehaviour
 
     private Coroutine _spawnRoutine;
 
+    private void Start()
+    {
+        StartSpawning();
+    }
 
+    private IEnumerator SpawnRoutine()
+    {
+        Vector3 spawnPoint;
+
+        while (_playerCharacter != null)
+        {
+            yield return new WaitForSeconds(_spawnRate);
+
+            if (_playerCharacter == null)
+            {
+                StopSpawning();
+                yield break;
+            }
+
+            spawnPoint = GetValidWorldSpawnPoint();
+
+            if (spawnPoint != Vector3.zero)
+            {
+                Spawn(ChooseRandomEnemy(), spawnPoint);
+            }
+
+        }
+    }
+
+    public void Spawn(Enemy enemyToSpawn, Vector3 position)
+    {
+        Enemy newEnemy = Instantiate(enemyToSpawn, position, Quaternion.identity);
+        newEnemy.Initialize(_playerCharacter);
+    }
+
+    public void StartSpawning()
+    {
+        if (_spawnRoutine != null)
+            StopCoroutine(_spawnRoutine);
+        _spawnRoutine = StartCoroutine(SpawnRoutine());
+    }
+
+    public void StopSpawning()
+    {
+        if (_spawnRoutine != null)
+            StopCoroutine(_spawnRoutine);
+    }
+
+    public Vector3 GetValidWorldSpawnPoint()
+    {
+        Vector3 randomDirection = new Vector3(Random.insideUnitSphere.x, 0, Random.insideUnitSphere.z).normalized;
+
+        Vector3 playerPos = new Vector3(_playerCharacter.transform.position.x, 0, _playerCharacter.transform.position.z);
+
+        Vector3 testPoint = playerPos + (randomDirection * _spawnDistanceFromPlayer);
+
+        for (int i = 0; i < _maxSpawnAttempts; i++)
+        {
+            if (Physics.OverlapSphere(testPoint, .5f, _layersToTest) == null)
+            {
+                Debug.Log("IT WORKS!!!");
+                return testPoint;
+            }
+            else
+            {
+                testPoint = new Vector3(testPoint.z, 0, -testPoint.x);
+            }
+        }
+        Debug.Log("Could not Spawn");
+        //Debug.Log(_layersToTest.ToString());
+
+        return testPoint = Vector3.zero;
+    }
+
+    private Enemy ChooseRandomEnemy()
+    {
+        int randomEnemyIndex;
+
+        randomEnemyIndex = Random.Range(0, _possibleEnemiesToSpawn.Length);
+
+        return _possibleEnemiesToSpawn[randomEnemyIndex];
+    }
+
+    private void Update()
+    {
+        _timeSinceLastSpawnRateChange += Time.deltaTime;
+
+        if (_timeSinceLastSpawnRateChange >= _timeBetweenSpawnRateChange)
+        {
+            _spawnRate -= _spawnRateReductionAmount;
+
+            if (_spawnRate < _minSpawnRate)
+                _spawnRate = _minSpawnRate;
+
+            _timeSinceLastSpawnRateChange = 0;
+        }
+    }
+
+    public void DestroyAllEnemies()
+    {
+        Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+
+        foreach (Enemy enemy in enemies)
+        {
+            Destroy(enemy.gameObject);
+        }
+    }
 }

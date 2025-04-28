@@ -12,11 +12,11 @@ TagManager:
   - Water
   - UI
   - Walls
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - PlayerWeapon
+  - EnemyDamageVolume
+  - Pickup
   - 
   - 
   - 
