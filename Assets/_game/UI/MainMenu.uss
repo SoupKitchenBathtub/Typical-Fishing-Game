@@ -23,3 +23,40 @@
     height: 80px;
     margin-top: 50px;
 }
+
+.menu_Default {
+    flex-grow: 1;
+    position: absolute;
+    top: 1px;
+    left: 1504px;
+    background-color: rgb(55, 28, 0);
+    height: 1080px;
+    width: 414px;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: center;
+    align-self: auto;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-circ;
+}
+
+.menu_ExitRight {
+    left: 1983px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-circ;
+}
+
+.loseScreen_Default {
+    flex-grow: 1;
+    position: absolute;
+    height: 1080px;
+    width: 1920px;
+    top: -16px;
+    left: -6px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-circ;
+}
+
+.loseScreen_ExitDown {
+    top: 1160px;
+}
