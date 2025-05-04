@@ -3,6 +3,7 @@
     <engine:VisualElement name="Canvas" style="flex-grow: 1;">
         <engine:VisualElement name="HUD" style="flex-grow: 1;">
             <engine:Button name="pEnter" text="| |" class="button" style="width: 100px; left: 75px; padding-right: 15px; padding-left: 15px; padding-bottom: 15px; padding-top: 15px; height: 100px;" />
+            <engine:Button text="Button" name="Interact" />
         </engine:VisualElement>
         <engine:VisualElement name="Pause" class="menu_Default menu_ExitRight">
             <engine:Button text="Resume" name="pExit" class="button" style="margin-bottom: 50px;" />

@@ -76,20 +76,22 @@ public class EntitySpawnerScript : MonoBehaviour
 
         Vector3 testPoint = playerPos + (randomDirection * _spawnDistanceFromPlayer);
 
+        Collider[] colliders = Physics.OverlapSphere(testPoint, .5f, _layersToTest);
+
         for (int i = 0; i < _maxSpawnAttempts; i++)
         {
-            if (Physics.OverlapSphere(testPoint, .5f, _layersToTest) == null)
+            if ( colliders.Length<1 )
             {
-                Debug.Log("IT WORKS!!!");
+                //Debug.Log("IT WORKS!!!");
                 return testPoint;
             }
             else
             {
                 testPoint = new Vector3(testPoint.z, 0, -testPoint.x);
+                //print(colliders);
             }
         }
-        Debug.Log("Could not Spawn");
-        //Debug.Log(_layersToTest.ToString());
+        //Debug.Log("Could not Spawn");
 
         return testPoint = Vector3.zero;
     }

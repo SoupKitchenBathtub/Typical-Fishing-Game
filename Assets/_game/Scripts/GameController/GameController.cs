@@ -17,15 +17,14 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Transform _playerUnitSpawnLocation;
     [SerializeField]
-    private UnitSpawner _unitSpawner;
+    private EntitySpawnerScript _enemySpawner;
     [SerializeField]
     private InputBroadcaster _input;
 
     public float TapLimitDuration => timeLimit;
     public float IntDuration => intLimit;
 
+    public EntitySpawnerScript eSpawner => _enemySpawner;
     //public Unit PlayerUnitPrefab => _playerUnitPrefab;
-    public Transform PlayerUnitSpawnLocation => _playerUnitSpawnLocation;
-    public UnitSpawner UnitSpawner => _unitSpawner;
     public InputBroadcaster Input => _input;
 }

@@ -5,17 +5,19 @@ public class NightState : State
 
     private GameFSM _stateMachine;
     private GameController _controller;
+    private EntitySpawnerScript _enemySpawner;
 
-    public NightState(GameFSM stateMachine, GameController controller)
+    public NightState(GameFSM stateMachine, GameController controller, EntitySpawnerScript spawner)
     {
         _stateMachine = stateMachine;
         _controller = controller;
+        _enemySpawner = spawner;
     }
 
     public override void Enter()
     {
         base.Enter();
-        //Start Spawning Enemies
+        _enemySpawner.StartSpawning();
         //Switch HUD to Night Mode
     }
 
@@ -37,8 +39,8 @@ public class NightState : State
         //Debug.Log("Night Time");
         if (StateDur >= _controller.TapLimitDuration)
         {
-            //Stop Spawning of Enemies
-            //Clear Enemies & Pickups
+            _enemySpawner.StopSpawning();
+            _enemySpawner.DestroyAllEnemies();
             _stateMachine.ChangeState(_stateMachine._intState);
         }
     }
