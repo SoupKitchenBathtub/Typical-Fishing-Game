@@ -3,7 +3,8 @@
     <engine:VisualElement name="Canvas" style="flex-grow: 1;">
         <engine:VisualElement name="HUD" style="flex-grow: 1;">
             <engine:Button name="pEnter" text="| |" class="button" style="width: 100px; left: 75px; padding-right: 15px; padding-left: 15px; padding-bottom: 15px; padding-top: 15px; height: 100px;" />
-            <engine:Button text="Button" name="Interact" />
+            <engine:Button name="Honk" icon-image="project://database/Assets/EasyTransitions/Sprites/SlicedCircle.png?fileID=2800000&amp;guid=8142b3efe82b5904397d3e29ec3e5a1e&amp;type=3#SlicedCircle" class="button buttonInt_Default" style="position: absolute; align-self: flex-end; align-content: flex-end; top: 548px; left: 1636px; background-image: none; background-color: rgba(154, 78, 0, 0); height: 200px; width: 200px; padding-top: 50px; padding-bottom: 50px; padding-left: 50px; padding-right: 50px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-left-radius: 90px; border-top-right-radius: 90px; border-bottom-right-radius: 90px; border-bottom-left-radius: 90px; border-top-width: 27px; border-right-width: 27px; border-bottom-width: 27px; border-left-width: 27px;" />
+            <engine:Button name="Interact" icon-image="project://database/Assets/_game/Art/UIART/interactPrompt.aseprite?fileID=-8328923581568760697&amp;guid=649b98b0cc2b793478014cd72962c09d&amp;type=3#interactPrompt" class="button buttonInt_Default buttonInt_ExitShrink" />
         </engine:VisualElement>
         <engine:VisualElement name="Pause" class="menu_Default menu_ExitRight">
             <engine:Button text="Resume" name="pExit" class="button" style="margin-bottom: 50px;" />
@@ -15,7 +16,7 @@
         </engine:VisualElement>
         <engine:VisualElement name="LoseScreen" class="loseScreen_Default loseScreen_ExitDown">
             <engine:Label text="WRECKED" name="loseText" class="header" style="align-content: flex-start; bottom: -195px;" />
-            <engine:Button text="Quit" name="Quit" class="button" style="align-self: center; justify-content: flex-start; align-items: center; align-content: flex-start; bottom: -536px;" />
+            <engine:Button text="Quit" name="Fquit" class="button" style="align-self: center; justify-content: flex-start; align-items: center; align-content: flex-start; bottom: -536px;" />
             <engine:Button text="Retry" name="Retry" class="button" style="align-self: center; bottom: -268px;" />
         </engine:VisualElement>
     </engine:VisualElement>

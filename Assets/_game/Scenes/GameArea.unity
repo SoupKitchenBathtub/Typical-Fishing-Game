@@ -238,6 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181128959}
   - component: {fileID: 181128960}
+  - component: {fileID: 181128961}
   m_Layer: 5
   m_Name: GameHUDController
   m_TagString: Untagged
@@ -279,6 +280,22 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!114 &181128961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181128958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de81004d2c52c93489b3f452194cabc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameController: {fileID: 0}
+  _playerCharacter: {fileID: 0}
+  _lvlName: MainMenu
+  _click: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +958,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 5904985656760350113, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
+      propertyPath: OnKilled.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904985656760350113, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
+      propertyPath: OnKilled.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904985656760350113, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
+      propertyPath: OnKilled.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1885343689}
+    - target: {fileID: 5904985656760350113, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
+      propertyPath: OnKilled.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904985656760350113, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
+      propertyPath: OnKilled.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnterLose
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904985656760350113, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
+      propertyPath: OnKilled.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904985656760350113, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
+      propertyPath: OnKilled.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6613162875232452979, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1287,6 +1332,36 @@ MonoBehaviour:
   _playerUnitSpawnLocation: {fileID: 1663670810}
   _enemySpawner: {fileID: 823536669}
   _input: {fileID: 977365067}
+  OnWin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 823536669}
+        m_TargetAssemblyTypeName: EntitySpawnerScript, Assembly-CSharp
+        m_MethodName: StopSpawning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 823536669}
+        m_TargetAssemblyTypeName: EntitySpawnerScript, Assembly-CSharp
+        m_MethodName: DestroyAllEnemies
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1885343690
 MonoBehaviour:
   m_ObjectHideFlags: 0

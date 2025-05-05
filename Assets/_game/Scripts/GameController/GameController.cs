@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -27,4 +29,21 @@ public class GameController : MonoBehaviour
     public EntitySpawnerScript eSpawner => _enemySpawner;
     //public Unit PlayerUnitPrefab => _playerUnitPrefab;
     public InputBroadcaster Input => _input;
+
+    public UnityEvent OnWin;
+    public UnityEvent OnLose;
+
+    public void EnterLose()
+    {
+
+
+        OnLose?.Invoke();
+    }
+
+    public void ReloadLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
 }

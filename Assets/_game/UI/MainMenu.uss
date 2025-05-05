@@ -60,3 +60,32 @@
 .loseScreen_ExitDown {
     top: 1160px;
 }
+
+.buttonInt_Default {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(154, 78, 0, 0);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 27px;
+    border-right-width: 27px;
+    border-bottom-width: 27px;
+    border-left-width: 27px;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
+    border-bottom-left-radius: 90px;
+    position: absolute;
+    top: 548px;
+    left: 1636px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-circ;
+}
+
+.buttonInt_ExitShrink {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}

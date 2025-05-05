@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 4112919483451911226}
   - component: {fileID: 2224471087981673079}
   - component: {fileID: 801590472241671325}
+  - component: {fileID: 5904985656760350113}
   m_Layer: 7
   m_Name: PlayerUnit
   m_TagString: Untagged
@@ -220,3 +221,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: 0}
   _moveSpeed: 2
+--- !u!114 &5904985656760350113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238026423225760860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2251c170c79d642946dfe5391bcd39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 100
+  _healthMax: 100
+  _hurtSound: {fileID: 0}
+  _deathSound: {fileID: 0}
+  OnKilled:
+    m_PersistentCalls:
+      m_Calls: []

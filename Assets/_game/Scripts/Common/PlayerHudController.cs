@@ -9,6 +9,10 @@ using UnityEngine;
 public class PlayerHudController : MonoBehaviour
 {
 
+    [SerializeField] private GameController _gameController;
+    [SerializeField] private PlayerCharacter _playerCharacter;
+    private Health _playerHealth;
+
     private UIDocument _document;
 
     //private VisualElement _root;
@@ -22,6 +26,9 @@ public class PlayerHudController : MonoBehaviour
     private Button _sEnter;
     private Button _sExit;
     private Button _quit;
+    private Button _fQuit;
+    private Button _interact;
+    private Button _honk;
 
     private Slider _music;
     private Slider _SFX;
@@ -44,19 +51,18 @@ public class PlayerHudController : MonoBehaviour
         _lose = _document.rootVisualElement.Q("LoseScreen");
 
         _pEnter = _document.rootVisualElement.Q("pEnter") as Button;
-        _pEnter.RegisterCallback<ClickEvent>(OnPEnterClick);
-
+        
         _pExit = _document.rootVisualElement.Q("pExit") as Button;
-        _pExit.RegisterCallback<ClickEvent>(OnPExitClick);
-
+        
         _sEnter = _document.rootVisualElement.Q("sEnter") as Button;
-        _sEnter.RegisterCallback<ClickEvent>(OnSEnterClick);
-
+        
         _sExit = _document.rootVisualElement.Q("sExit") as Button;
-        _sExit.RegisterCallback<ClickEvent>(OnSExitClick);
-
+        
         _quit = _document.rootVisualElement.Q("Quit") as Button;
-        _quit.RegisterCallback<ClickEvent>(OnQuitClick);
+
+        _fQuit = _document.rootVisualElement.Q("Fquit") as Button;
+
+        _interact = _document.rootVisualElement.Q("Interact") as Button;
 
         /*_menuButtons = _document.rootVisualElement.Query<Button>().ToList();
         for (int i = 0; i < _menuButtons.Count; i++)
@@ -65,13 +71,29 @@ public class PlayerHudController : MonoBehaviour
         }*/
     }
 
+    private void OnEnable()
+    {
+        _pEnter.RegisterCallback<ClickEvent>(OnPEnterClick);
+        _pExit.RegisterCallback<ClickEvent>(OnPExitClick);
+        _sEnter.RegisterCallback<ClickEvent>(OnSEnterClick);
+        _sExit.RegisterCallback<ClickEvent>(OnSExitClick);
+        _quit.RegisterCallback<ClickEvent>(OnQuitClick);
+        _fQuit.RegisterCallback<ClickEvent>(OnFquitClick);
+        //_interact.RegisterCallback<ClickEvent>(OnInteractClick);
+        //_honk.RegisterCallback<ClickEvent>(OnHonkClick);
+        _gameController.OnLose.AddListener(LoseScreenEnter);
+    }
+
     private void OnDisable()
     {
+        _gameController.OnLose.RemoveListener(LoseScreenEnter);
         _pEnter.UnregisterCallback<ClickEvent>(OnPEnterClick);
         _pExit.UnregisterCallback<ClickEvent>(OnPExitClick);
         _sEnter.UnregisterCallback<ClickEvent>(OnSEnterClick);
         _sExit.UnregisterCallback<ClickEvent>(OnSExitClick);
         _quit.UnregisterCallback<ClickEvent>(OnQuitClick);
+        _fQuit.UnregisterCallback<ClickEvent>(OnFquitClick);
+        //_interact.UnregisterCallback<ClickEvent>(OnInteractClick);
 
         /*for (int i = 0; i < _menuButtons.Count; i++)
         {
@@ -82,31 +104,55 @@ public class PlayerHudController : MonoBehaviour
     private void OnPEnterClick(ClickEvent evt)
     {
         //Disable/ or Close HUD
-        //Open Pause
+        _pause.RemoveFromClassList("menu_ExitRight");
+        _pEnter.SetEnabled(false);
     }
 
     private void OnPExitClick(ClickEvent evt)
     {
-        //Close Pause
-        //Open HUD
+        _pause.AddToClassList("menu_ExitRight");
+        _pEnter.SetEnabled(true);
     }
 
     private void OnSEnterClick(ClickEvent evt)
     {
-        //Close Pause
-        //Open Settings
+        _pause.AddToClassList("menu_ExitRight");
+        _settings.RemoveFromClassList("menu_ExitRight");
     }
 
     private void OnSExitClick(ClickEvent evt)
     {
-        //Close Settings
-        //Open Pause
+        _settings.AddToClassList("menu_ExitRight");
+        _pause.RemoveFromClassList("menu_ExitRight");
     }
 
     private void OnQuitClick(ClickEvent evt)
     {
         SceneManager.LoadScene(_lvlName);
         //print("ouch");
+    }
+
+    private void OnFquitClick(ClickEvent evt)
+    {
+        SceneManager.LoadScene(_lvlName);
+        SaveManager.Instance.ResetSave();
+        //print("ouch");
+    }
+
+    public void InteractActive()
+    {
+        //MinimizeHonk
+        //MaximizeInt
+    }
+
+    public void InteractDeactive()
+    {
+        //Opposite of IA
+    }
+
+    public void LoseScreenEnter()
+    {
+        _lose.RemoveFromClassList("loseScreen_ExitDown");
     }
 
 }
