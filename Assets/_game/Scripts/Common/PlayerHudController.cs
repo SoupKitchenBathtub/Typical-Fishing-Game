@@ -177,4 +177,16 @@ public class PlayerHudController : MonoBehaviour
         _playerCharacter.intPress();
     }
 
+    private void OnRetryClick(ClickEvent evt)
+    {
+        //reload scene
+        //Erase both initial save & score save
+    }
+
+    private void OnNewRunClick(ClickEvent evt)
+    {
+        //Erase both initial save & score save
+        //Load New Scene
+    }
+
 }

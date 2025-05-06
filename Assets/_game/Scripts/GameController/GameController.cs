@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
     private EntitySpawnerScript _enemySpawner;
     [SerializeField]
     private InputBroadcaster _input;
+    [SerializeField]
+    private GameFSM _sMachine;
 
     public float TapLimitDuration => timeLimit;
     public float IntDuration => intLimit;
@@ -36,7 +38,7 @@ public class GameController : MonoBehaviour
     public void EnterLose()
     {
 
-
+        _sMachine.ChangeState(_sMachine.EndState);
         OnLose?.Invoke();
     }
 

@@ -22,7 +22,7 @@ public class EntitySpawnerScript : MonoBehaviour
 
     private void Start()
     {
-        StartSpawning();
+
     }
 
     private IEnumerator SpawnRoutine()

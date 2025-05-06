@@ -43,5 +43,7 @@ public class NightState : State
             _enemySpawner.DestroyAllEnemies();
             _stateMachine.ChangeState(_stateMachine._intState);
         }
+
+
     }
 }

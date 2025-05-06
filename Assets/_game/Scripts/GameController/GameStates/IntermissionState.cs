@@ -18,11 +18,11 @@ public class IntermissionState : State
         //Check if previous state is day or night
         if(_stateMachine.PrevState == _stateMachine._dayState)
         {
-            //Spawn Day Shop
+            Debug.Log("Night is Coming");
         }
         else if (_stateMachine.PrevState == _stateMachine._nightState)
         {
-            //Spawn Night Shop
+            Debug.Log("Day is Close");
         }
     }
 

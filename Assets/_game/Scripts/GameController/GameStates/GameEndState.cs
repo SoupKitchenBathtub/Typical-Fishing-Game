@@ -18,6 +18,7 @@ public class GameEndState : State
     {
         base.Enter();
         Debug.Log("Game Ended State Entered");
+        Debug.Log("Log Run's Data");
     }
 
     public override void Exit()
@@ -33,9 +34,6 @@ public class GameEndState : State
     public override void Tick()
     {
         base.Tick();
-        if (_controller.Input.IsTapPressed == true)
-        {
-            _stateMachine.ChangeState(_stateMachine._dayState);
-        }
+        
     }
 }
