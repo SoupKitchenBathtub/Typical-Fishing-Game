@@ -64,6 +64,8 @@ public class PlayerHudController : MonoBehaviour
 
         _interact = _document.rootVisualElement.Q("Interact") as Button;
 
+        _honk = _document.rootVisualElement.Q("Honk") as Button;
+
         /*_menuButtons = _document.rootVisualElement.Query<Button>().ToList();
         for (int i = 0; i < _menuButtons.Count; i++)
         {
@@ -79,9 +81,10 @@ public class PlayerHudController : MonoBehaviour
         _sExit.RegisterCallback<ClickEvent>(OnSExitClick);
         _quit.RegisterCallback<ClickEvent>(OnQuitClick);
         _fQuit.RegisterCallback<ClickEvent>(OnFquitClick);
-        //_interact.RegisterCallback<ClickEvent>(OnInteractClick);
-        //_honk.RegisterCallback<ClickEvent>(OnHonkClick);
+        _interact.RegisterCallback<ClickEvent>(OnInteractClick);
+        _honk.RegisterCallback<ClickEvent>(OnHonkClick);
         _gameController.OnLose.AddListener(LoseScreenEnter);
+        //_playerCharacter.InteractionDetected += ButtonPressed();
     }
 
     private void OnDisable()
@@ -93,8 +96,8 @@ public class PlayerHudController : MonoBehaviour
         _sExit.UnregisterCallback<ClickEvent>(OnSExitClick);
         _quit.UnregisterCallback<ClickEvent>(OnQuitClick);
         _fQuit.UnregisterCallback<ClickEvent>(OnFquitClick);
-        //_interact.UnregisterCallback<ClickEvent>(OnInteractClick);
-
+        _interact.UnregisterCallback<ClickEvent>(OnInteractClick);
+        _honk.UnregisterCallback<ClickEvent>(OnHonkClick);
         /*for (int i = 0; i < _menuButtons.Count; i++)
         {
             _menuButtons[i].UnregisterCallback<ClickEvent>(OnAllButtonClick);
@@ -142,17 +145,36 @@ public class PlayerHudController : MonoBehaviour
     public void InteractActive()
     {
         //MinimizeHonk
+        _honk.AddToClassList("buttonInt_ExitShrink");
         //MaximizeInt
+        _interact.RemoveFromClassList("buttonInt_ExitShrink");
+        _honk.SetEnabled(false);
+        _interact.SetEnabled(true);
     }
 
     public void InteractDeactive()
     {
-        //Opposite of IA
+        _honk.RemoveFromClassList("buttonInt_ExitShrink");
+        //MaximizeInt
+        _interact.AddToClassList("buttonInt_ExitShrink");
+        _honk.SetEnabled(true);
+        _interact.SetEnabled(false);
     }
 
     public void LoseScreenEnter()
     {
         _lose.RemoveFromClassList("loseScreen_ExitDown");
+    }
+
+    private void OnHonkClick(ClickEvent evt)
+    {
+        Debug.Log("Honk");
+    }
+
+    private void OnInteractClick(ClickEvent evt)
+    {
+        //ButtonPressed();
+        _playerCharacter.intPress();
     }
 
 }
