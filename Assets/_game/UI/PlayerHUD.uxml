@@ -3,8 +3,21 @@
     <engine:VisualElement name="Canvas" style="flex-grow: 1;">
         <engine:VisualElement name="HUD" style="flex-grow: 1;">
             <engine:Button name="pEnter" text="| |" class="button" style="width: 100px; left: 75px; padding-right: 15px; padding-left: 15px; padding-bottom: 15px; padding-top: 15px; height: 100px;" />
+            <engine:VisualElement name="Clock" style="flex-grow: 1; position: absolute; background-image: url(&quot;project://database/Assets/_game/Art/UIART/clock.aseprite?fileID=-9013490466449945957&amp;guid=d08d90d287d2f6e43aacb124149335b1&amp;type=3#clock_0&quot;); height: 500px; width: 500px; top: -252px; left: 776px;" />
+            <engine:VisualElement name="Stats" style="flex-grow: 1; position: absolute; -unity-font-style: bold; align-self: flex-end; align-items: center; top: 48px; left: 1707px; justify-content: center; align-content: center;">
+                <engine:VisualElement name="HealthStat" style="flex-grow: 1;" />
+                <engine:VisualElement name="EXPStat" style="flex-grow: 1;" />
+                <engine:VisualElement name="GoldStat" style="flex-grow: 1; flex-direction: row; align-items: center; justify-content: flex-start;">
+                    <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_game/Art/UIART/GOLD.aseprite?fileID=-419112289977182868&amp;guid=a1fe4d12c7caaf34a8ae5805b6e67b54&amp;type=3#GOLD_0&quot;); width: 20px; height: 30px;" />
+                    <engine:Label text=": 0" name="GoldLabel" style="font-size: 30px;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="FishStat" style="flex-grow: 1; flex-direction: row; align-items: center; justify-content: flex-start;">
+                    <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_game/Art/UIART/fish.aseprite?fileID=4761113784292734888&amp;guid=485614c4a864aea4ca8b6818417ffa46&amp;type=3#fish_0&quot;); width: 30px; height: 30px;" />
+                    <engine:Label text=": 0" name="FishLabel" style="font-size: 30px; -unity-font-style: bold;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
             <engine:Button name="Honk" icon-image="project://database/Assets/EasyTransitions/Sprites/SlicedCircle.png?fileID=2800000&amp;guid=8142b3efe82b5904397d3e29ec3e5a1e&amp;type=3#SlicedCircle" class="button buttonInt_Default" style="position: absolute; align-self: flex-end; align-content: flex-end; top: 548px; left: 1636px; background-image: none; background-color: rgba(154, 78, 0, 0); height: 200px; width: 200px; padding-top: 50px; padding-bottom: 50px; padding-left: 50px; padding-right: 50px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-left-radius: 90px; border-top-right-radius: 90px; border-bottom-right-radius: 90px; border-bottom-left-radius: 90px; border-top-width: 27px; border-right-width: 27px; border-bottom-width: 27px; border-left-width: 27px;" />
-            <engine:Button name="Interact" icon-image="project://database/Assets/_game/Art/UIART/interactPrompt.aseprite?fileID=-8328923581568760697&amp;guid=649b98b0cc2b793478014cd72962c09d&amp;type=3#interactPrompt" class="button buttonInt_Default buttonInt_ExitShrink" />
+            <engine:Button name="Interact" icon-image="project://database/Assets/_game/Art/UIART/interactPrompt.aseprite?fileID=-7349996242830976384&amp;guid=649b98b0cc2b793478014cd72962c09d&amp;type=3#interactPrompt_0" class="button buttonInt_Default buttonInt_ExitShrink" />
         </engine:VisualElement>
         <engine:VisualElement name="Pause" class="menu_Default menu_ExitRight">
             <engine:Button text="Resume" name="pExit" class="button" style="margin-bottom: 50px;" />

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 649b98b0cc2b793478014cd72962c09d
+guid: d08d90d287d2f6e43aacb124149335b1
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 64
+    spritePixelsToUnits: 128
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638819030575126345
+  platformSettingsDirtyTick: 638822272796828221
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: interactPrompt
+  - name: clock
     originalName: 
-    pivot: {x: 0.5, y: -0.22500001}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 24
-      height: 40
-    spriteID: e24d3e8560ab74c44882bdb70cb5d7b3
+      width: 128
+      height: 128
+    spriteID: 5ec2af063d5334d49afbebf633f93240
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,7 +145,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: interactPrompt_0
+  - name: clock_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -153,11 +153,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 2
-      y: 3
-      width: 28
-      height: 43
-    spriteID: c275544da4519ff47a8f880a5d840910
+      x: 4
+      y: 4
+      width: 128
+      height: 128
+    spriteID: e925f5f5dcb43f5488dba898f8cc1c91
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -168,21 +168,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: 379612022
-    name: interactPrompt
+    guid: -549136684
+    name: clock
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: interactPrompt
+    - name: clock
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 20
-        y: 9
-        width: 24
-        height: 40
-      spriteId: e24d3e8560ab74c44882bdb70cb5d7b3
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      spriteId: 5ec2af063d5334d49afbebf633f93240
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -237,5 +237,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 64, y: 64}
-  previousTextureSize: {x: 32, y: 64}
+  canvasSize: {x: 128, y: 128}
+  previousTextureSize: {x: 256, y: 256}

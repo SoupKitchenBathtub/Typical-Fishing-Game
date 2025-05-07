@@ -534,12 +534,12 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 5000
-  m_UseColorTemperature: 1
+  m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -643,7 +643,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _spawnDistanceFromPlayer: 10
-  _spawnDistanceFromPlayerInt: 20
+  _spawnDistanceFromPlayerInt: 15
   _timeBetweenSpawnRateChange: 60
   _spawnRateReductionAmount: 0.1
   _fishMultiplies: 1
@@ -1314,12 +1314,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2789a04715e8b449886ae27769e5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 10
-  intLimit: 0
+  timeLimit: 20
+  intLimit: 8
   _playerUnitSpawnLocation: {fileID: 1663670810}
   _enemySpawner: {fileID: 823536669}
   _input: {fileID: 977365067}
   _sMachine: {fileID: 1885343688}
+  _sunLight: {fileID: 410087040}
   OnWin:
     m_PersistentCalls:
       m_Calls: []

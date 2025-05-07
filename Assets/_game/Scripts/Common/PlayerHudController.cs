@@ -33,6 +33,9 @@ public class PlayerHudController : MonoBehaviour
     private Slider _music;
     private Slider _SFX;
 
+    private Label _gLabel;
+    private Label _fLabel;
+
     [SerializeField] private string _lvlName;
 
     private List<Button> _menuButtons = new List<Button>();
@@ -66,6 +69,10 @@ public class PlayerHudController : MonoBehaviour
 
         _honk = _document.rootVisualElement.Q("Honk") as Button;
 
+        _gLabel = _document.rootVisualElement.Q("GoldLabel") as Label;
+
+        _fLabel = _document.rootVisualElement.Q("FishLabel") as Label;
+
         /*_menuButtons = _document.rootVisualElement.Query<Button>().ToList();
         for (int i = 0; i < _menuButtons.Count; i++)
         {
@@ -84,6 +91,8 @@ public class PlayerHudController : MonoBehaviour
         _interact.RegisterCallback<ClickEvent>(OnInteractClick);
         _honk.RegisterCallback<ClickEvent>(OnHonkClick);
         _gameController.OnLose.AddListener(LoseScreenEnter);
+        _playerCharacter.onGoldCollected += SetGoldAmt;
+        _playerCharacter.onFishCollected += SetFishAmt;
         //_playerCharacter.InteractionDetected += ButtonPressed();
     }
 
@@ -98,6 +107,7 @@ public class PlayerHudController : MonoBehaviour
         _fQuit.UnregisterCallback<ClickEvent>(OnFquitClick);
         _interact.UnregisterCallback<ClickEvent>(OnInteractClick);
         _honk.UnregisterCallback<ClickEvent>(OnHonkClick);
+        _playerCharacter.onGoldCollected -= SetGoldAmt;
         /*for (int i = 0; i < _menuButtons.Count; i++)
         {
             _menuButtons[i].UnregisterCallback<ClickEvent>(OnAllButtonClick);
@@ -138,7 +148,6 @@ public class PlayerHudController : MonoBehaviour
     private void OnFquitClick(ClickEvent evt)
     {
         SceneManager.LoadScene(_lvlName);
-        SaveManager.Instance.ResetRecord();
         SaveManager.Instance.ResetSave();
         //print("ouch");
     }
@@ -194,4 +203,13 @@ public class PlayerHudController : MonoBehaviour
         //Load New Scene
     }
 
+    private void SetGoldAmt(int amt)
+    {
+        _gLabel.text = string.Format(": {0}", amt);
+    }
+
+    private void SetFishAmt(int amt)
+    {
+        _fLabel.text = string.Format(": {0}", amt);
+    }
 }

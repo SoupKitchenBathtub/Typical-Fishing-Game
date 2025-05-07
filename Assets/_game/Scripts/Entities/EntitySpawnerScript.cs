@@ -23,6 +23,8 @@ public class EntitySpawnerScript : MonoBehaviour
     private float _timeSinceLastSpawnRateChange = 0;
     private int _maxSpawnAttempts = 4;
 
+    private float spawnDist;
+
     private Coroutine _spawnRoutine;
 
     private void Start()
@@ -91,11 +93,21 @@ public class EntitySpawnerScript : MonoBehaviour
 
     public Vector3 GetValidWorldSpawnPoint()
     {
+
+        if (_stateMachine.CurrState == _stateMachine._nightState)
+        {
+            spawnDist = _spawnDistanceFromPlayer;
+        }
+        else if (_stateMachine.CurrState == _stateMachine._dayState)
+        {
+            spawnDist = _spawnDistanceFromPlayerInt;
+        }
+
         Vector3 randomDirection = new Vector3(Random.insideUnitSphere.x, 0, Random.insideUnitSphere.z).normalized;
 
         Vector3 playerPos = new Vector3(_playerCharacter.transform.position.x, 0, _playerCharacter.transform.position.z);
 
-        Vector3 testPoint = playerPos + (randomDirection * _spawnDistanceFromPlayer);
+        Vector3 testPoint = playerPos + (randomDirection * spawnDist);
 
         Collider[] colliders = Physics.OverlapSphere(testPoint, .5f, _layersToTest);
 

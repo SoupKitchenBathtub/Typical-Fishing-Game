@@ -7,6 +7,7 @@ public class PlayerCharacter : MonoBehaviour
     public event Action<int> OnLeveledUp = delegate { };
     public event Action<float, float> OnEXPGained = delegate { };
     public event Action<int> onGoldCollected = delegate { };
+    public event Action<int> onFishCollected = delegate { };
 
     //public event Action<bool> InteractionDetected = delegate { };
 
@@ -77,9 +78,17 @@ public class PlayerCharacter : MonoBehaviour
     {
         GOLD += amount;
         onGoldCollected?.Invoke(GOLD);
-        //SaveManager.Instance.ActiveRecData.gold = 
-        //SaveManager.Instance.ActiveSaveData.gold = 
+        SaveManager.Instance.ActiveRecData.gold = GOLD;
+        SaveManager.Instance.ActiveSaveData.gold = GOLD;
         //Debug.Log("Gold: " + GOLD);
+    }
+
+    public void IncreaseFISH(int amount)
+    {
+        FISH += amount;
+        onFishCollected?.Invoke(FISH);
+        SaveManager.Instance.ActiveRecData.fish = FISH;
+        SaveManager.Instance.ActiveSaveData.fish = FISH;
     }
 
     public void intPress()

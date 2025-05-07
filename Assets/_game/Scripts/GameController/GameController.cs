@@ -24,11 +24,14 @@ public class GameController : MonoBehaviour
     private InputBroadcaster _input;
     [SerializeField]
     private GameFSM _sMachine;
+    [SerializeField]
+    private Light _sunLight;
 
     public float TapLimitDuration => timeLimit;
     public float IntDuration => intLimit;
 
     public EntitySpawnerScript eSpawner => _enemySpawner;
+    public Light sun => _sunLight;
     //public Unit PlayerUnitPrefab => _playerUnitPrefab;
     public InputBroadcaster Input => _input;
 

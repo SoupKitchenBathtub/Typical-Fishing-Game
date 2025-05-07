@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 649b98b0cc2b793478014cd72962c09d
+guid: 485614c4a864aea4ca8b6818417ffa46
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638819030575126345
+  platformSettingsDirtyTick: 638822272691641545
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: interactPrompt
+  - name: fish
     originalName: 
-    pivot: {x: 0.5, y: -0.22500001}
+    pivot: {x: 0.43636364, y: -0.17307693}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 24
-      height: 40
-    spriteID: e24d3e8560ab74c44882bdb70cb5d7b3
+      width: 55
+      height: 52
+    spriteID: d65c6ee48eefb4448bfc21dfb44ad168
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,7 +145,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: interactPrompt_0
+  - name: fish_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -153,11 +153,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 2
-      y: 3
-      width: 28
-      height: 43
-    spriteID: c275544da4519ff47a8f880a5d840910
+      x: 0
+      y: 0
+      width: 64
+      height: 64
+    spriteID: 8b0aa38c4273d6c4185b5aafaad55553
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -168,21 +168,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: 379612022
-    name: interactPrompt
+    guid: -77933692
+    name: fish
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: interactPrompt
+    - name: fish
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 20
+        x: 8
         y: 9
-        width: 24
-        height: 40
-      spriteId: e24d3e8560ab74c44882bdb70cb5d7b3
+        width: 55
+        height: 52
+      spriteId: d65c6ee48eefb4448bfc21dfb44ad168
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -238,4 +238,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 64, y: 64}
-  previousTextureSize: {x: 32, y: 64}
+  previousTextureSize: {x: 64, y: 64}

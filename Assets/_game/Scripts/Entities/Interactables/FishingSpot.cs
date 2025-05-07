@@ -9,7 +9,9 @@ public class FishingSpot : MonoBehaviour, IInteractable
 
     public void Interact(GameObject interactor)
     {
-        Debug.Log("Fish");
+        int fishAmt = Random.Range(1, 5);
+        Debug.Log(fishAmt);
+        _player.IncreaseFISH(fishAmt);
         _player.pressOff();
         Destroy(gameObject);
     }

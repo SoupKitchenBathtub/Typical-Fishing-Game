@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 882157073518616640}
   - component: {fileID: 6388802317021489777}
   - component: {fileID: 5776503518650938906}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: DamageRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 8468152484381398721}
   - component: {fileID: 3053974615122700467}
   - component: {fileID: 8594101645705251431}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}

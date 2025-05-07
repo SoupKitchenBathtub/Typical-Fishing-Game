@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class IntermissionState : State
@@ -5,11 +6,13 @@ public class IntermissionState : State
 
     private GameFSM _stateMachine;
     private GameController _controller;
+    private Light _sun;
 
-    public IntermissionState(GameFSM stateMachine, GameController controller)
+    public IntermissionState(GameFSM stateMachine, GameController controller, Light light)
     {
         _stateMachine = stateMachine;
         _controller = controller;
+        _sun = light;
     }
 
     public override void Enter()
@@ -19,11 +22,14 @@ public class IntermissionState : State
         if(_stateMachine.PrevState == _stateMachine._dayState)
         {
             Debug.Log("Night is Coming");
+            _sun.DOColor(new Color(0, 0.2470588f, 0.4156863f), _controller.IntDuration).SetEase(Ease.InOutSine);
         }
         else if (_stateMachine.PrevState == _stateMachine._nightState)
         {
             SaveManager.Instance.ActiveSaveData.day++;
+            SaveManager.Instance.Save();
             Debug.Log("Day is Close");
+            _sun.DOColor(new Color(1, 1, 1), _controller.IntDuration).SetEase(Ease.InOutSine);
         }
     }
 
