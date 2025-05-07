@@ -5,14 +5,19 @@ public class EntitySpawnerScript : MonoBehaviour
 {
     [Header("Dependencies")]
     [SerializeField] private PlayerCharacter _playerCharacter;
+    [SerializeField] private PlayerHudController _HUD;
+    [SerializeField] private GameFSM _stateMachine;
 
     [Header("Spawn Settings")]
     [SerializeField] private Enemy[] _possibleEnemiesToSpawn;
+    [SerializeField] private FishingSpot[] _possibleIntsToSpawn;
     [SerializeField] private float _spawnRate = 1;
     [SerializeField] private LayerMask _layersToTest;
     [SerializeField] private float _spawnDistanceFromPlayer = 10;
+    [SerializeField] private float _spawnDistanceFromPlayerInt = 20;
     [SerializeField] private float _timeBetweenSpawnRateChange = 10;
     [SerializeField] private float _spawnRateReductionAmount = 0.1f;
+    [SerializeField] private float _fishMultiplies = 1f;
     [SerializeField] private float _minSpawnRate = .2f;
 
     private float _timeSinceLastSpawnRateChange = 0;
@@ -41,9 +46,19 @@ public class EntitySpawnerScript : MonoBehaviour
 
             spawnPoint = GetValidWorldSpawnPoint();
 
-            if (spawnPoint != Vector3.zero)
+            if(_stateMachine.CurrState == _stateMachine._dayState)
             {
-                Spawn(ChooseRandomEnemy(), spawnPoint);
+                if (spawnPoint != Vector3.zero)
+                {
+                    SpawnInt(ChooseRandomInt(), spawnPoint);
+                }
+            }
+            else if (_stateMachine.CurrState == _stateMachine._nightState)
+            {
+                if (spawnPoint != Vector3.zero)
+                {
+                    Spawn(ChooseRandomEnemy(), spawnPoint);
+                }
             }
 
         }
@@ -53,6 +68,12 @@ public class EntitySpawnerScript : MonoBehaviour
     {
         Enemy newEnemy = Instantiate(enemyToSpawn, position, Quaternion.identity);
         newEnemy.Initialize(_playerCharacter);
+    }
+
+    public void SpawnInt(FishingSpot fishArea, Vector3 position)
+    {
+        FishingSpot newFArea = Instantiate(fishArea, position, Quaternion.identity);
+        newFArea.intInitialize(_playerCharacter, _HUD);
     }
 
     public void StartSpawning()
@@ -105,6 +126,15 @@ public class EntitySpawnerScript : MonoBehaviour
         return _possibleEnemiesToSpawn[randomEnemyIndex];
     }
 
+    private FishingSpot ChooseRandomInt()
+    {
+        int randomFSIndex;
+
+        randomFSIndex = Random.Range(0, _possibleIntsToSpawn.Length);
+
+        return _possibleIntsToSpawn[randomFSIndex];
+    }
+
     private void Update()
     {
         _timeSinceLastSpawnRateChange += Time.deltaTime;
@@ -127,6 +157,16 @@ public class EntitySpawnerScript : MonoBehaviour
         foreach (Enemy enemy in enemies)
         {
             Destroy(enemy.gameObject);
+        }
+    }
+
+    public void DestroyAllInts()
+    {
+        FishingSpot[] FSs = FindObjectsByType<FishingSpot>(FindObjectsSortMode.None);
+
+        foreach (FishingSpot FS in FSs)
+        {
+            Destroy(FS.gameObject);
         }
     }
 }

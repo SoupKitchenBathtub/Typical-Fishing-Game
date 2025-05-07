@@ -5,11 +5,13 @@ public class DayState : State
 
     private GameFSM _stateMachine;
     private GameController _controller;
+    private EntitySpawnerScript _FSSpawner;
 
-    public DayState(GameFSM stateMachine, GameController controller)
+    public DayState(GameFSM stateMachine, GameController controller, EntitySpawnerScript spawner)
     {
         _stateMachine = stateMachine;
         _controller = controller;
+        _FSSpawner = spawner;
     }
 
     public override void Enter()
@@ -17,6 +19,7 @@ public class DayState : State
         base.Enter();
         SaveManager.Instance.Load();
         Debug.Log("Day " + SaveManager.Instance.ActiveSaveData.day);
+        _FSSpawner.StartSpawning();
         //Start Spawning Fishing Spots
         //Switch Hud to Day Mode
     }
@@ -40,6 +43,8 @@ public class DayState : State
         if(StateDur >= _controller.TapLimitDuration)
         {
             //Clear All Objects in scene
+            _FSSpawner.StopSpawning();
+            _FSSpawner.DestroyAllInts();
             _stateMachine.ChangeState(_stateMachine._intState);
         }
     }

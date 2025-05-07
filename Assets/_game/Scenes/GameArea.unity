@@ -632,15 +632,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCharacter: {fileID: 1485038373}
+  _HUD: {fileID: 181128961}
+  _stateMachine: {fileID: 1885343688}
   _possibleEnemiesToSpawn:
   - {fileID: 3069718462607579320, guid: b6f4f6abaaf61694b9e24a2ec433555a, type: 3}
+  _possibleIntsToSpawn:
+  - {fileID: 4036890068168955556, guid: f9ebc41eb9c313f41aa5cbe2ac23f8fa, type: 3}
   _spawnRate: 1.5
   _layersToTest:
     serializedVersion: 2
     m_Bits: 64
   _spawnDistanceFromPlayer: 10
+  _spawnDistanceFromPlayerInt: 20
   _timeBetweenSpawnRateChange: 60
   _spawnRateReductionAmount: 0.1
+  _fishMultiplies: 1
   _minSpawnRate: 0.2
 --- !u!1 &832575517
 GameObject:

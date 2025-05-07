@@ -26,7 +26,7 @@ public class GameFSM : StateMachineMB
         _controller = GetComponent<GameController>();
         //State Initialization Below Here
         SetupState = new GameSetupState(this, _controller);
-        _dayState = new DayState(this, _controller);
+        _dayState = new DayState(this, _controller, _controller.eSpawner);
         _nightState = new NightState(this, _controller, _controller.eSpawner);
         _intState = new IntermissionState(this, _controller);
         PlayState = new GamePlayState(this, _controller);
