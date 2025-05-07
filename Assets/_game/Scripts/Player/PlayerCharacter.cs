@@ -77,6 +77,8 @@ public class PlayerCharacter : MonoBehaviour
     {
         GOLD += amount;
         onGoldCollected?.Invoke(GOLD);
+        //SaveManager.Instance.ActiveRecData.gold = 
+        //SaveManager.Instance.ActiveSaveData.gold = 
         //Debug.Log("Gold: " + GOLD);
     }
 

@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int _healthMax = 100;
     [SerializeField] AudioClip _hurtSound = null;
     [SerializeField] AudioClip _deathSound = null;
+    [SerializeField] ParticleSystem _hitEffect = null;
 
     public event Action<float, float> OnHealthChanged = delegate { };
     public event Action onHealthUpgraded = delegate { };
@@ -17,6 +18,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         _currentHealth -= amount;
+        _hitEffect.Play();
         //AudioSource audioSource = AudioHelper.PlayClip2D(_hurtSound, 1, false);
         //audioSource.pitch = UnityEngine.Random.Range(.5f, 1);
         OnHealthChanged?.Invoke(_currentHealth, _healthMax);

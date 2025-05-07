@@ -955,6 +955,10 @@ PrefabInstance:
       value: PlayerUnit
       objectReference: {fileID: 0}
     - target: {fileID: 5904985656760350113, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
+      propertyPath: _hitEffect
+      value: 
+      objectReference: {fileID: 1774417588}
+    - target: {fileID: 5904985656760350113, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
       propertyPath: OnKilled.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1885343689}
@@ -1130,6 +1134,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1517531535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1774417588 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3291775441436313890, guid: 5f1bb4bdb6ee09642bdd6f8c2063e566, type: 3}
+  m_PrefabInstance: {fileID: 1485038370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1804222437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1299,8 +1308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2789a04715e8b449886ae27769e5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 15
-  intLimit: 5
+  timeLimit: 10
+  intLimit: 0
   _playerUnitSpawnLocation: {fileID: 1663670810}
   _enemySpawner: {fileID: 823536669}
   _input: {fileID: 977365067}

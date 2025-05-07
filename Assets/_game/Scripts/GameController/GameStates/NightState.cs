@@ -23,7 +23,7 @@ public class NightState : State
 
     public override void Exit()
     {
-        SaveManager.Instance.ActiveSaveData.day++;
+        SaveManager.Instance.ActiveRecData.day = SaveManager.Instance.ActiveSaveData.day;
         SaveManager.Instance.Save();
         base.Exit();
     }

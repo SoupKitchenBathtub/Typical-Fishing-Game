@@ -22,6 +22,7 @@ public class IntermissionState : State
         }
         else if (_stateMachine.PrevState == _stateMachine._nightState)
         {
+            SaveManager.Instance.ActiveSaveData.day++;
             Debug.Log("Day is Close");
         }
     }

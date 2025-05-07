@@ -9,7 +9,56 @@ using UnityEngine;
 public static class SaveSystem
 {
     public static readonly string SAVE_FOLDER = Application.persistentDataPath + "/";
+    public static readonly string RECORD_FOLDER = Application.persistentDataPath + "/";
     public static readonly string FILE_NAME = "save.json";
+    //Save to Record
+    public static void RecordToFile(SaveData saveData)
+    {
+        Debug.Log("Recording Data");
+        string json = JsonUtility.ToJson(saveData);
+        File.WriteAllText(RECORD_FOLDER + FILE_NAME, json);
+    }
+    public static void RecordToFileForRecords(RecordedData recData)
+    {
+        Debug.Log("Recording Data");
+        string json = JsonUtility.ToJson(recData);
+        File.WriteAllText(RECORD_FOLDER + FILE_NAME, json);
+    }
+    //Load Record
+    public static RecordedData LoadFromRecord()
+    {
+        Debug.Log("Load");
+        RecordedData recData = new RecordedData();
+        // if we already have one, load it
+        if (DoesRecordFileExist())
+        {
+            // turn file into a json string
+            string json = File.ReadAllText(RECORD_FOLDER + FILE_NAME);
+            // convert string into object
+            recData = JsonUtility.FromJson<RecordedData>(json);
+        }
+        // if not, create a new one and load that one
+        else
+        {
+            recData = CreateNewRecord();
+        }
+
+        return recData;
+    }
+    public static RecordedData CreateNewRecord()
+    {
+        RecordedData saveData = new RecordedData();
+        RecordToFileForRecords(saveData);
+        return saveData;
+    }
+    public static bool DoesRecordFileExist()
+    {
+        if (File.Exists(RECORD_FOLDER + FILE_NAME))
+            return true;
+        else
+            return false;
+    }
+
     // save SaveData into file
     public static void SaveToFile(SaveData saveData)
     {
@@ -53,4 +102,5 @@ public static class SaveSystem
         else
             return false;
     }
+
 }

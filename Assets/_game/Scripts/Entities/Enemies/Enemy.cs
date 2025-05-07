@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private PlayerCharacter _player;
     [SerializeField] private float _moveSpeed = 1;
+    [SerializeField] private SpriteRenderer _sprite;
 
     private Rigidbody _rigidbody;
 
@@ -25,11 +26,24 @@ public class Enemy : MonoBehaviour
         direction.Normalize();
         Vector3 offsetPos = direction * _moveSpeed * Time.deltaTime;
         _rigidbody.MovePosition(_rigidbody.position + offsetPos);
+        FlipChar(direction);
     }
 
     public void Initialize(PlayerCharacter player)
     {
         _player = player;
+    }
+
+    private void FlipChar(Vector3 _moveDirection)
+    {
+        if (_moveDirection.x < 0f)
+        {
+            _sprite.flipX = true;
+        }
+        if (_moveDirection.x > 0f)
+        {
+            _sprite.flipX = false;
+        }
     }
 
 }

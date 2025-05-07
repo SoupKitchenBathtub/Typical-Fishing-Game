@@ -5,10 +5,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputHandler _input;
     [SerializeField] private float _moveSpeed = 2;
     [SerializeField] private Animator _animation;
+    [SerializeField] private SpriteRenderer _sprite;
 
     private Vector2 _moveDirection;
     private Rigidbody _rigidbody;
-    private bool faceRight = false;
+    private float xPosLastFrame;
 
     private void Awake()
     {
@@ -24,25 +25,35 @@ public class PlayerMovement : MonoBehaviour
             _moveDirection = _input.TouchCurrentPosition - _input.TouchStartPosition;
             _moveDirection.Normalize();
         }
-        
-        if(_moveDirection.x>0f)
+        CharAnim();
+        FlipChar();
+
+    }
+
+    private void FlipChar()
+    {
+        if(_moveDirection.x > 0f)
         {
-            _animation.CrossFadeInFixedTime("ship_horizontal_move_anim_right", 0.2f);
-            faceRight = true;
+            _sprite.flipX = true;
         }
-        else if(_moveDirection.x<0f)
+        if (_moveDirection.x < 0f)
         {
-            _animation.CrossFadeInFixedTime("ship_horizontal_move_anim_left", 0.2f);
-            faceRight = false;
+            _sprite.flipX = false;
         }
-        if (_moveDirection.x == 0f && faceRight == true)
+    }
+
+    private void CharAnim()
+    {
+        if (_input.TouchHeld == true && (transform.position.x != xPosLastFrame))
         {
-            _animation.CrossFadeInFixedTime("ship_horizontal_idle_anim_right", 0.2f);
+            _animation.CrossFade("ship_horizontal_move_anim", 0, 0);
         }
-        else if (_moveDirection.x == 0f && faceRight == false)
+        else if (_input.TouchHeld == false && (transform.position.x == xPosLastFrame))
         {
-            _animation.CrossFadeInFixedTime("ship_horizontal_idle_anim_left", 0.2f);
+            _animation.CrossFade("ship_horizontal_idle_anim", 0, 0);
         }
+
+        xPosLastFrame = transform.position.x;
 
     }
 

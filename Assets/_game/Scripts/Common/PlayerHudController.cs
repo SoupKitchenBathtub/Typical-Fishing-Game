@@ -138,6 +138,7 @@ public class PlayerHudController : MonoBehaviour
     private void OnFquitClick(ClickEvent evt)
     {
         SceneManager.LoadScene(_lvlName);
+        SaveManager.Instance.ResetRecord();
         SaveManager.Instance.ResetSave();
         //print("ouch");
     }
@@ -181,11 +182,15 @@ public class PlayerHudController : MonoBehaviour
     {
         //reload scene
         //Erase both initial save & score save
+        SaveManager.Instance.ResetRecord();
+        SaveManager.Instance.ResetSave();
     }
 
     private void OnNewRunClick(ClickEvent evt)
     {
         //Erase both initial save & score save
+        SaveManager.Instance.ResetRecord();
+        SaveManager.Instance.ResetSave();
         //Load New Scene
     }
 

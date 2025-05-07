@@ -46,4 +46,19 @@ public class SaveManager : MonoBehaviour
     {
         ActiveSaveData = SaveSystem.CreateNewSaveFile();
     }
+
+    public RecordedData ActiveRecData { get; private set; } = new RecordedData();
+    public void Record()
+    {
+        SaveSystem.RecordToFile(ActiveSaveData);
+    }
+    public void LoadRecord()
+    {
+        ActiveRecData = SaveSystem.LoadFromRecord();
+    }
+    public void ResetRecord()
+    {
+        ActiveRecData = SaveSystem.CreateNewRecord();
+    }
+
 }

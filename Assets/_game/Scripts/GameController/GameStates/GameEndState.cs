@@ -18,7 +18,8 @@ public class GameEndState : State
     {
         base.Enter();
         Debug.Log("Game Ended State Entered");
-        Debug.Log("Log Run's Data");
+        SaveManager.Instance.Record();
+        Debug.Log("Days Survived: " + SaveManager.Instance.ActiveRecData.day);
     }
 
     public override void Exit()
