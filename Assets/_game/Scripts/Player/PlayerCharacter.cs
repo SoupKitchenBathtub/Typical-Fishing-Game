@@ -35,7 +35,7 @@ public class PlayerCharacter : MonoBehaviour
 
         _gameController = FindAnyObjectByType<GameController>();
 
-        _hud = FindAnyObjectByType<PlayerHudController>();//_gameController.GetComponentInParent<PlayerHudController>();
+        _hud = FindAnyObjectByType<PlayerHudController>();
 
         LVL = SaveManager.Instance.ActiveSaveData.level;
 

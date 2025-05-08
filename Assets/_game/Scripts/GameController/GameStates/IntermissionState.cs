@@ -28,6 +28,11 @@ public class IntermissionState : State
         {
             SaveManager.Instance.ActiveSaveData.day++;
             SaveManager.Instance.Save();
+            SaveManager.Instance.ActiveRecData.day = SaveManager.Instance.ActiveSaveData.day;
+            SaveManager.Instance.ActiveRecData.fish = SaveManager.Instance.ActiveSaveData.fish;
+            SaveManager.Instance.ActiveRecData.level= SaveManager.Instance.ActiveSaveData.level;
+            SaveManager.Instance.ActiveRecData.gold = SaveManager.Instance.ActiveSaveData.gold;
+            SaveManager.Instance.Record();
             Debug.Log("Day is Close");
             _sun.DOColor(new Color(1, 1, 1), _controller.IntDuration).SetEase(Ease.InOutSine);
         }

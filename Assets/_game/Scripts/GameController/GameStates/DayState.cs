@@ -21,6 +21,7 @@ public class DayState : State
     {
         base.Enter();
         SaveManager.Instance.Load();
+        
         Debug.Log("Day " + SaveManager.Instance.ActiveSaveData.day);
         _FSSpawner.StartSpawning();
         _sun.DOColor(new Color(1, 0.6862745f, 0.345098f), _controller.TapLimitDuration).SetEase(Ease.InOutSine);

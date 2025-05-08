@@ -6,7 +6,7 @@ public class FishingSpot : MonoBehaviour, IInteractable
     [SerializeField] private PlayerCharacter _player;
 
     private int fishAmt;
-    private float fTime = 5f;
+    private float fTime = 3f;
     private float fDur;
     private int fTap;
 

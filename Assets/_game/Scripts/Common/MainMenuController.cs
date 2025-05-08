@@ -87,6 +87,7 @@ public class MainMenuController : MonoBehaviour
     private void OnPlayClick(ClickEvent evt)
     {
         SceneManager.LoadScene(_lvlName);
+        SaveManager.Instance.Load();
     }
 
     private void OnNewClick(ClickEvent evt)

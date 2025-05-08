@@ -730,7 +730,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _spawnDistanceFromPlayer: 10
-  _spawnDistanceFromPlayerInt: 15
+  _spawnDistanceFromPlayerInt: 5
   _timeBetweenSpawnRateChange: 60
   _spawnRateReductionAmount: 0.1
   _fishMultiplies: 1
@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLimit: 10
-  intLimit: 10
+  intLimit: 5
   _playerUnitSpawnLocation: {fileID: 1663670810}
   _enemySpawner: {fileID: 823536669}
   _input: {fileID: 977365067}
