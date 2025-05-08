@@ -59,6 +59,8 @@
 
 .loseScreen_ExitDown {
     top: 1160px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-cubic;
 }
 
 .buttonInt_Default {
@@ -86,4 +88,71 @@
 
 .buttonInt_ExitShrink {
     opacity: 0;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-cubic;
+    width: 0;
+    height: 0;
+}
+
+.minigame_default {
+    flex-grow: 1;
+    position: absolute;
+    top: 448px;
+    left: 895px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-cubic;
+}
+
+.minigame_exit {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-cubic;
+}
+
+.buttonInt_Default {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(154, 78, 0, 0);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 27px;
+    border-right-width: 27px;
+    border-bottom-width: 27px;
+    border-left-width: 27px;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    border-bottom-right-radius: 90px;
+    border-bottom-left-radius: 90px;
+    position: absolute;
+    top: 548px;
+    left: 1636px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-circ;
+}
+
+.shop_Default {
+    flex-grow: 1;
+    position: absolute;
+    height: 508px;
+    width: 940px;
+    top: 276px;
+    left: 556px;
+    justify-content: center;
+    background-color: rgb(255, 145, 0);
+    border-top-left-radius: 146px;
+    border-top-right-radius: 146px;
+    border-bottom-right-radius: 146px;
+    border-bottom-left-radius: 146px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-cubic;
+}
+
+.shop_Exit {
+    top: -695px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out-cubic;
 }

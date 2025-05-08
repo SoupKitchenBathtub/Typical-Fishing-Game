@@ -77,7 +77,7 @@ public class WeaponSystem : MonoBehaviour
 
     private Collider DetectClosestTarget()
     {
-        Physics.OverlapSphere(transform.position, _detectionRadius, _targetFilter, _targetsDetected);
+        //Physics.OverlapSphere(transform.position, _detectionRadius, _targetFilter, _targetsDetected);
 
         if (_targetsDetected == null) return null;
 

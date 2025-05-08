@@ -6,14 +6,26 @@ public class FishingSpot : MonoBehaviour, IInteractable
     [SerializeField] private PlayerCharacter _player;
 
     private int fishAmt;
+    private float fTime = 5f;
+    private float fDur;
+    private int fTap;
 
     public void Interact(GameObject interactor)
     {
-        int fishAmt = Random.Range(1, 5);
-        Debug.Log(fishAmt);
-        _player.IncreaseFISH(fishAmt);
-        _player.pressOff();
-        Destroy(gameObject);
+
+        fDur += Time.deltaTime;
+        _HUD.FGEnter();
+        _HUD.FishTimer(fTime, fTime - fDur);
+
+        if(fDur >= fTime)
+        {
+            _HUD.FGExit();
+            _player.FTrans();
+            _player.FReset();
+            _player.pressOff();
+            Destroy(gameObject);
+        }
+
     }
 
     public void intInitialize(PlayerCharacter player, PlayerHudController HUD)

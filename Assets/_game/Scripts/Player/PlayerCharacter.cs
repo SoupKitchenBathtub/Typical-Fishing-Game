@@ -19,6 +19,7 @@ public class PlayerCharacter : MonoBehaviour
     private float _expForNextLevelUp = 100;
     private float _expTotal;
     private bool isClicked = false;
+    private int fClick;
 
     private GameController _gameController;
 
@@ -99,6 +100,21 @@ public class PlayerCharacter : MonoBehaviour
     public void pressOff()
     {
         isClicked = false;
+    }
+
+    public void FClick()
+    {
+        fClick++;
+    }
+
+    public void FTrans()
+    {
+        IncreaseFISH(fClick);
+    }
+
+    public void FReset()
+    {
+        fClick = 0;
     }
 
 }

@@ -20,6 +20,10 @@ public class PlayerHudController : MonoBehaviour
     private VisualElement _pause;
     private VisualElement _settings;
     private VisualElement _lose;
+    private VisualElement _fG;
+    private VisualElement _s1;
+    private VisualElement _s2;
+    private VisualElement _sC;
 
     private Button _pEnter;
     private Button _pExit;
@@ -29,12 +33,16 @@ public class PlayerHudController : MonoBehaviour
     private Button _fQuit;
     private Button _interact;
     private Button _honk;
+    private Button _fButton;
+    private Button _Retry;
 
     private Slider _music;
     private Slider _SFX;
 
     private Label _gLabel;
     private Label _fLabel;
+
+    private ProgressBar _fTime;
 
     [SerializeField] private string _lvlName;
 
@@ -52,6 +60,7 @@ public class PlayerHudController : MonoBehaviour
         _pause = _document.rootVisualElement.Q("Pause");
         _settings = _document.rootVisualElement.Q("Settings");
         _lose = _document.rootVisualElement.Q("LoseScreen");
+        _fG = _document.rootVisualElement.Q("FishingMinigame");
 
         _pEnter = _document.rootVisualElement.Q("pEnter") as Button;
         
@@ -69,9 +78,15 @@ public class PlayerHudController : MonoBehaviour
 
         _honk = _document.rootVisualElement.Q("Honk") as Button;
 
+        _fButton = _document.rootVisualElement.Q("FishButton") as Button;
+
+        _Retry = _document.rootVisualElement.Q("Retry") as Button;
+
         _gLabel = _document.rootVisualElement.Q("GoldLabel") as Label;
 
         _fLabel = _document.rootVisualElement.Q("FishLabel") as Label;
+
+        _fTime = _document.rootVisualElement.Q("FishTime") as ProgressBar;
 
         /*_menuButtons = _document.rootVisualElement.Query<Button>().ToList();
         for (int i = 0; i < _menuButtons.Count; i++)
@@ -90,6 +105,8 @@ public class PlayerHudController : MonoBehaviour
         _fQuit.RegisterCallback<ClickEvent>(OnFquitClick);
         _interact.RegisterCallback<ClickEvent>(OnInteractClick);
         _honk.RegisterCallback<ClickEvent>(OnHonkClick);
+        _Retry.RegisterCallback<ClickEvent>(OnNewRunClick);
+        _fButton.RegisterCallback<ClickEvent>(OnFButtonClick);
         _gameController.OnLose.AddListener(LoseScreenEnter);
         _playerCharacter.onGoldCollected += SetGoldAmt;
         _playerCharacter.onFishCollected += SetFishAmt;
@@ -107,7 +124,10 @@ public class PlayerHudController : MonoBehaviour
         _fQuit.UnregisterCallback<ClickEvent>(OnFquitClick);
         _interact.UnregisterCallback<ClickEvent>(OnInteractClick);
         _honk.UnregisterCallback<ClickEvent>(OnHonkClick);
+        _Retry.UnregisterCallback<ClickEvent>(OnNewRunClick);
+        _fButton.RegisterCallback<ClickEvent>(OnFButtonClick);
         _playerCharacter.onGoldCollected -= SetGoldAmt;
+        _playerCharacter.onFishCollected -= SetFishAmt;
         /*for (int i = 0; i < _menuButtons.Count; i++)
         {
             _menuButtons[i].UnregisterCallback<ClickEvent>(OnAllButtonClick);
@@ -187,20 +207,37 @@ public class PlayerHudController : MonoBehaviour
         _playerCharacter.intPress();
     }
 
-    private void OnRetryClick(ClickEvent evt)
+    private void OnFButtonClick(ClickEvent evt)
+    {
+        _playerCharacter.FClick();
+    }
+
+    /*private void OnRetryClick(ClickEvent evt)
     {
         //reload scene
         //Erase both initial save & score save
         SaveManager.Instance.ResetRecord();
         SaveManager.Instance.ResetSave();
-    }
+    }*/
 
     private void OnNewRunClick(ClickEvent evt)
     {
         //Erase both initial save & score save
         SaveManager.Instance.ResetRecord();
         SaveManager.Instance.ResetSave();
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
         //Load New Scene
+    }
+
+    public void FGEnter()
+    {
+        _fG.RemoveFromClassList("minigame_exit");
+    }
+
+    public void FGExit()
+    {
+        _fG.AddToClassList("minigame_exit");
     }
 
     private void SetGoldAmt(int amt)
@@ -211,5 +248,12 @@ public class PlayerHudController : MonoBehaviour
     private void SetFishAmt(int amt)
     {
         _fLabel.text = string.Format(": {0}", amt);
+    }
+
+    public void FishTimer(float timeThresh, float time)
+    {
+        _fTime.highValue = timeThresh;
+        _fTime.value = time;
+        _fTime.title = $"{(int)(time)} Secs";
     }
 }

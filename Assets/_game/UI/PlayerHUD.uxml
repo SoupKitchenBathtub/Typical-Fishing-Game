@@ -3,7 +3,11 @@
     <engine:VisualElement name="Canvas" style="flex-grow: 1;">
         <engine:VisualElement name="HUD" style="flex-grow: 1;">
             <engine:Button name="pEnter" text="| |" class="button" style="width: 100px; left: 75px; padding-right: 15px; padding-left: 15px; padding-bottom: 15px; padding-top: 15px; height: 100px;" />
-            <engine:VisualElement name="Clock" style="flex-grow: 1; position: absolute; background-image: url(&quot;project://database/Assets/_game/Art/UIART/clock.aseprite?fileID=-9013490466449945957&amp;guid=d08d90d287d2f6e43aacb124149335b1&amp;type=3#clock_0&quot;); height: 500px; width: 500px; top: -252px; left: 776px;" />
+            <engine:VisualElement name="Clock" style="flex-grow: 1; position: absolute; background-image: url(&quot;project://database/Assets/_game/Art/UIART/clock.aseprite?fileID=-9013490466449945957&amp;guid=d08d90d287d2f6e43aacb124149335b1&amp;type=3#clock_0&quot;); height: 300px; width: 300px; top: -152px; left: 824px;" />
+            <engine:VisualElement name="FishingMinigame" class="minigame_default minigame_exit">
+                <engine:ProgressBar title="TIME" name="FishTime" value="1" high-value="1" />
+                <engine:Button icon-image="project://database/Assets/_game/Art/UIART/fish.aseprite?fileID=4761113784292734888&amp;guid=485614c4a864aea4ca8b6818417ffa46&amp;type=3#fish_0" name="FishButton" style="background-color: rgb(0, 97, 255); border-top-left-radius: 52px; border-top-right-radius: 52px; border-bottom-right-radius: 52px; border-bottom-left-radius: 52px; border-top-width: 15px; border-right-width: 15px; border-bottom-width: 15px; border-left-width: 15px; border-left-color: rgb(0, 166, 255); border-right-color: rgb(0, 166, 255); border-top-color: rgb(0, 166, 255); border-bottom-color: rgb(0, 166, 255); align-self: center; align-content: center;" />
+            </engine:VisualElement>
             <engine:VisualElement name="Stats" style="flex-grow: 1; position: absolute; -unity-font-style: bold; align-self: flex-end; align-items: center; top: 48px; left: 1707px; justify-content: center; align-content: center;">
                 <engine:VisualElement name="HealthStat" style="flex-grow: 1;" />
                 <engine:VisualElement name="EXPStat" style="flex-grow: 1;" />
@@ -31,6 +35,20 @@
             <engine:Label text="WRECKED" name="loseText" class="header" style="align-content: flex-start; bottom: -195px;" />
             <engine:Button text="Quit" name="Fquit" class="button" style="align-self: center; justify-content: flex-start; align-items: center; align-content: flex-start; bottom: -536px;" />
             <engine:Button text="Retry" name="Retry" class="button" style="align-self: center; bottom: -268px;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="ShopDay" class="shop_Default shop_Exit" style="align-items: center;">
+            <engine:Button text="15 Coins for Health Upgrade" enable-rich-text="false" name="CoinVendor" class="button" style="align-self: center; align-items: center; width: 833px;" />
+            <engine:Button text="5 Fish for 3 Coins" name="FishVendor" class="button" style="align-items: center; align-self: center; width: 616px;" />
+            <engine:Button text="Back" name="ShopBack" class="button" />
+        </engine:VisualElement>
+        <engine:VisualElement name="ShopNight" class="shop_Default shop_Exit" style="flex-grow: 1; position: absolute; align-items: center;">
+            <engine:Button text="15 Coins for Speed Upgrade" enable-rich-text="false" name="CoinVendorNight" class="button" style="align-self: center; align-items: center; width: 833px;" />
+            <engine:Button text="20 Fish for Health" name="FishVendorNight" class="button" style="align-items: center; align-self: center; width: 616px;" />
+            <engine:Button text="Back" name="ShopBack" class="button" />
+        </engine:VisualElement>
+        <engine:VisualElement name="ShopClosed" class="shop_Default shop_Exit" style="flex-grow: 1; height: 440px; width: 936px; border-top-left-radius: 146px; border-top-right-radius: 146px; border-bottom-right-radius: 146px; border-bottom-left-radius: 146px; background-color: rgb(255, 145, 0); justify-content: center; align-items: center;">
+            <engine:Label text="Shop is Now Closed" style="font-size: 72px; -unity-font-style: bold; -unity-text-align: middle-center;" />
+            <engine:Button text="Back" name="ShopBack" class="button" />
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>
